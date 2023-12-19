@@ -16,5 +16,4 @@ def backtracking(std,level):
             visit[level]=i
             # 현재 시점에서 그 다음으로
             backtracking(i+1,level+1)
-
 backtracking(0,0)
