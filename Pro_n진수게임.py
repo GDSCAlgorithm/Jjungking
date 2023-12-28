@@ -1,12 +1,10 @@
 def solution(n, t, m, p):
-    print(n, t, m, p)
     answer = ''
     lst = []
     alpha = ["A", "B", "C", "D", "E", "F"]
     # 10진법 이전
     if n <= 10:
         for i in range(0, t*20):
-            print("i", i)
             ans = []
 
             while True:
