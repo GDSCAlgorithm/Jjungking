@@ -1,16 +1,18 @@
-# This is a sample Python script.
+import sys
+input = sys.stdin.readline
+N = int(input())
+lst = [int(input()) for _ in range(N)]
+dp = [0 for _ in range(N)]
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+dp[0] = lst[0]
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+for i in range(1,N):
+    if i==1:
+        dp[1] = lst[0] + lst[1]
+    elif i==2:
+        dp[2] = max(lst[0] + lst[2], lst[1] + lst[2])
+    else:
+        dp[i] = max(lst[i]+dp[i-2],lst[i]+lst[i-1]+dp[i-3])
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(dp[-1])
