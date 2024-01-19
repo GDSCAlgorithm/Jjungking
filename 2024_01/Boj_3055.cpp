@@ -13,12 +13,8 @@ int ans;
 // 물은 돌을 통과할 수 없다 물도 소굴은 통과할 수 없다
 
 void bfs(){
-    // 물이 먼저 차오르고
-
-
-    // 고슴도치가 더이상 이동할 수 없을 때까지
     while(!q.empty()){
-    
+
         int waterSize = waterQueue.size();
         for(int i=0;i<waterSize;i++){
             int x = waterQueue.front().first;
@@ -27,7 +23,7 @@ void bfs(){
             for(int j=0;j<4;j++){
                 int newX = x+dirX[j];
                 int newY = y+dirY[j];
-                if(newX>=0&&newX<R&&newY>=0&&newY<C){
+                if(newX>=0&&newX<R&& newY>=0&&newY<C){
                     if(v[newX][newY]=='.'){
                         waterQueue.push({newX,newY});
                         v[newX][newY]='*';
@@ -36,32 +32,30 @@ void bfs(){
             }
         }
 
-        int hedgehogSize = q.size();
-        for(int i=0;i<hedgehogSize;i++){
+        int qSize = q.size();
+        for(int i=0;i<qSize;i++){
             int x = q.front().first;
             int y = q.front().second;
             q.pop();
             for(int j=0;j<4;j++){
                 int newX = x+dirX[j];
                 int newY = y+dirY[j];
-                if(newX>=0&&newX<R&&newY>=0&&newY<C){
+                if(newX>=0&&newX<R&& newY>=0&&newY<C){
                     if(v[newX][newY]=='D'){
-                            
-                            ans++;
-                            cout<<ans;
-                            return;
+                        ans++;
+                        cout<<ans;
+                        return;
                     }
-                    else if(v[newX][newY]=='.'){
+                    if(v[newX][newY]=='.'){
                         q.push({newX,newY});
                         v[newX][newY]='S';
-                        
                     }
                 }
             }
         }
         ans++;
     }
-    cout<<"KAKTUS"<<endl;
+    cout<<"KAKTUS";
 }
 int main(){
     cin>>R>>C;
