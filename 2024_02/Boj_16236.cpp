@@ -4,12 +4,9 @@ using namespace std;
 
 int N;
 int arr[21][21];
-
-
 int dy[] = {-1, 0, 0, 1}, dx[] = {0, -1, 1, 0};
 
 int sharkX,sharkY;
-
 
 struct Fish
 {
