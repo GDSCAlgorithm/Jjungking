@@ -5,6 +5,7 @@
     "queue": "cpp",
     "vector": "cpp",
     "tuple": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "stack": "cpp"
   }
 }
